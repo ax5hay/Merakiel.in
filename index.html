@@ -1062,6 +1062,48 @@
             resize: vertical;
         }
         
+        /* Form response styling */
+.form-response {
+    padding: 15px 0;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.form-response.success {
+    display: block;
+    color: #106b32;
+    background-color: rgba(16, 107, 50, 0.1);
+    padding: 15px;
+    border-left: 3px solid #106b32;
+}
+
+.form-response.error {
+    display: block;
+    color: #a51c1c;
+    background-color: rgba(165, 28, 28, 0.1);
+    padding: 15px;
+    border-left: 3px solid #a51c1c;
+}
+
+.btn .btn-loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn .btn-loading i {
+    margin-right: 8px;
+}
+
+.btn.loading .btn-text {
+    display: none;
+}
+
+.btn.loading .btn-loading {
+    display: inline-flex !important;
+} 
         .contact-info {
             color: white;
         }
@@ -1671,72 +1713,80 @@
 </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <div class="contact-form reveal from-left">
-                <h2 class="section-title">Get In Touch</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name" required>
+<section id="contact" class="contact">
+    <div class="contact-container">
+        <div class="contact-form reveal from-left">
+            <h2 class="section-title">Get In Touch</h2>
+            <form id="contact-form" action="https://formspree.io/f/xwpoajlw" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" class="form-control" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="New inquiry from Merakiel website">
+                <input type="text" name="_gotcha" style="display:none">
+                <div class="form-response" id="form-response"></div>
+                <button type="submit" class="btn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Sending...
+                    </span>
+                </button>
+            </form>
+        </div>
+        
+        <div class="contact-info reveal from-right">
+            <h3 class="section-subtitle">Contact Information</h3>
+            <h2 class="section-title">Reach Us</h2>
+            <p class="contact-text">We welcome commissions and bespoke requests. Feel free to contact us to discuss your ideas or visit our studio by appointment.</p>
+            
+            <div class="contact-details">
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    <div class="contact-info-text">
+                        <h4>Studio Location</h4>
+                        <p>New Delhi, India</p>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
+                </div>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="Your Message" required></textarea>
+                    <div class="contact-info-text">
+                        <h4>Phone Number</h4>
+                        <a href="tel:+918929227723">+91 8929227723</a>
                     </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+                </div>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info-text">
+                        <h4>Email Address</h4>
+                        <a href="mailto:connect@merakiel.com">connect@merakiel.com</a>
+                    </div>
+                </div>
             </div>
             
-            <div class="contact-info reveal from-right">
-                <h3 class="section-subtitle">Contact Information</h3>
-                <h2 class="section-title">Reach Us</h2>
-                <p class="contact-text">We welcome commissions and bespoke requests. Feel free to contact us to discuss your ideas or visit our studio by appointment.</p>
-                
-                <div class="contact-details">
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-info-text">
-                            <h4>Studio Location</h4>
-                            <p>New Delhi, India</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-info-text">
-                            <h4>Phone Number</h4>
-                            <a href="tel:+918929227723">+91 8929227723</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-info-text">
-                            <h4>Email Address</h4>
-                            <a href="mailto:connect@merakiel.com">connect@merakiel.com</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="social-links">
-                    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                </div>
+            <div class="social-links">
+                <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1993,15 +2043,62 @@ setInterval(() => {
     goToSlide(currentSlide);
 }, 8000);
         
-        // Contact Form
-        const contactForm = document.getElementById('contact-form');
+        // Contact Form with Formspree
+const contactForm = document.getElementById('contact-form');
+const formResponse = document.getElementById('form-response');
+const submitButton = contactForm.querySelector('button[type="submit"]');
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    submitButton.classList.add('loading');
+    
+    // Reset form response
+    formResponse.className = 'form-response';
+    formResponse.style.display = 'none';
+    formResponse.textContent = '';
+    
+    // Collect form data
+    const formData = new FormData(contactForm);
+    
+    // Submit form using fetch
+    fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Network response was not ok');
+        }
+    })
+    .then(data => {
+        // Success
+        formResponse.textContent = 'Thank you for your message! We will get back to you soon.';
+        formResponse.classList.add('success');
+        formResponse.style.display = 'block';
+        contactForm.reset();
+    })
+    .catch(error => {
+        // Error
+        formResponse.textContent = 'There was a problem sending your message. Please try again or contact us directly.';
+        formResponse.classList.add('error');
+        formResponse.style.display = 'block';
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        // Hide loading state
+        submitButton.classList.remove('loading');
         
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Normally would handle form submission here
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
-        });
+        // Scroll to response message
+        formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+});
         
         // Gold particle animation for hero section
         const heroSection = document.querySelector('.hero');
