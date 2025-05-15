@@ -1389,6 +1389,114 @@ a.logo {
     text-decoration: none !important;
 }
 
+/* Footer with animated Aiximius logo */
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.powered-by {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gold-light);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.powered-by:hover {
+    opacity: 1;
+}
+
+.aiximius-link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.aiximius-logo {
+    height: 20px;
+    transition: all 0.5s ease;
+    filter: brightness(0.9);
+}
+
+/* Logo animations */
+.aiximius-link:hover .aiximius-logo {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
+.aiximius-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.aiximius-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Subtle pulsing animation */
+@keyframes logo-pulse {
+    0% {
+        transform: scale(1);
+        filter: brightness(0.9);
+    }
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.1);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(0.9);
+    }
+}
+
+.footer:hover .aiximius-logo {
+    animation: logo-pulse 2s infinite ease-in-out;
+}
+
+/* Responsive sizing */
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    .aiximius-logo {
+        height: 24px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .aiximius-logo {
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .aiximius-logo {
+        height: 18px;
+    }
+    
+    .powered-by {
+        font-size: 10px;
+    }
+}
+
 /* Contact section with background image */
 .contact {
     padding: 150px 50px;
@@ -1846,20 +1954,28 @@ a.logo {
     </div>
 </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">MERAKIEL</div>
-            
-            <div class="footer-links">
-                <!-- <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="#" class="footer-link">Terms of Service</a>
-                <a href="#" class="footer-link">FAQ</a> -->
-            </div>
-            
-            <p class="copyright">&copy; 2025 Merakiel. All Rights Reserved.</p>
+   <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">MERAKIEL</div>
+        
+        <div class="footer-links">
+            <!-- <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">FAQ</a> -->
         </div>
-    </footer>
+        
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 Merakiel. All Rights Reserved.</p>
+            <div class="powered-by">
+                <span>Powered by</span>
+                <a href="https://aiximius.com" target="_blank" rel="noopener noreferrer" class="aiximius-link">
+                    <img src="logo header.png" alt="Aiximius" class="aiximius-logo">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <!-- JavaScript -->
     <script>
