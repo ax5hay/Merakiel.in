@@ -168,27 +168,41 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            background-color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(18, 53, 36, 0.92), rgba(18, 53, 36, 0.86)), url('/api/placeholder/1920/1080') center/cover no-repeat;
-            z-index: 1;
-        }
+ /* Hero Section with image background */
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(18, 53, 36, 0.92), rgba(18, 53, 36, 0.86)), url('Untitled design.png') center/cover no-repeat;
+    z-index: 1;
+    transform-origin: center center;
+    animation-name: subtle-zoom;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes subtle-zoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
         
         .hero-content {
             position: relative;
@@ -1375,6 +1389,44 @@ a.logo {
     text-decoration: none !important;
 }
 
+/* Contact section with background image */
+.contact {
+    padding: 150px 50px;
+    background-color: transparent; /* Changed from var(--primary-color) */
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(18, 53, 36, 0.97), rgba(18, 53, 36, 0.92)), url('Untitled design.png') center/cover no-repeat;
+    z-index: -1;
+}
+
+/* Enhance the right side to stand out more against background */
+.contact-info {
+    color: white;
+    padding: 40px;
+    background-color: rgba(18, 53, 36, 0.7); /* Semi-transparent background */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Make sure text is readable against the background */
+.contact-text {
+    color: var(--gold-light);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+
     </style>
 </head>
 <body>
@@ -1400,23 +1452,23 @@ a.logo {
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <h3 class="hero-subtitle">Luxury Handicrafts & Art</h3>
-            <h1 class="hero-title">Merakiel</h1>
-            <p class="hero-description">Exquisite macramé and artisanal crafts handcrafted with passion. Each piece tells a story of tradition, innovation, and timeless elegance.</p>
-            <div class="hero-cta">
-                <a href="#collections" class="btn">Explore Collections</a>
-            </div>
+<section id="home" class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+        <h3 class="hero-subtitle">Luxury Handicrafts & Art</h3>
+        <h1 class="hero-title">Merakiel</h1>
+        <p class="hero-description">Exquisite macramé and artisanal crafts handcrafted with passion. Each piece tells a story of tradition, innovation, and timeless elegance.</p>
+        <div class="hero-cta">
+            <a href="#collections" class="btn">Explore Collections</a>
         </div>
-        <div class="scroll-indicator">
-            <p>Scroll Down</p>
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
+    </div>
+    <div class="scroll-indicator">
+        <p>Scroll Down</p>
+        <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -1719,6 +1771,7 @@ a.logo {
 
     <!-- Contact Section -->
 <section id="contact" class="contact">
+    <div class="contact-background"></div>
     <div class="contact-container">
         <div class="contact-form reveal from-left">
             <h2 class="section-title">Get In Touch</h2>
@@ -2104,6 +2157,10 @@ contactForm.addEventListener('submit', function(e) {
         formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 });
+
+
+// Start the animation
+animateHeroBackground();
         
         // Gold particle animation for hero section
         const heroSection = document.querySelector('.hero');
